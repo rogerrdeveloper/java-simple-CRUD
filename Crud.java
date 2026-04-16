@@ -9,6 +9,17 @@ public class Crud {
         usuarios.add(u); // Add user in Array
     }
 
+    public boolean atualizarUsuario(String nomeAntigo, int idadeAntiga, String novoNome, int novaIdade) {
+        for (Usuario u : usuarios) {
+            if (u.getNome().equalsIgnoreCase(nomeAntigo) && u.getIdade() == idadeAntiga) {
+                u.setNome(novoNome);
+                u.setIdade(novaIdade);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void removerNome(String n){
         usuarios.removeIf(u -> u.getNome().equalsIgnoreCase(n)); //Para cada usuário da lista, se o nome dele for igual ao nome digitado, REMOVE da lista
     }
