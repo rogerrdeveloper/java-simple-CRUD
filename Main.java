@@ -11,7 +11,8 @@ public class Main {
             System.out.println("1 - ADICIONAR NOME");
             System.out.println("2 - REMOVER NOME");
             System.out.println("3 - MOSTRAR LISTA");
-            System.out.println("4 - SAIR DO CRUD");
+            System.out.println("4 - ATUALIZAR USUARIo");
+            System.out.println("5 - SAIR DO CRUD");
             System.out.print("Escolha: ");
 
             int escolha = sc.nextInt();
@@ -39,10 +40,32 @@ public class Main {
                     break;
 
                 case 4:
-                    System.out.println("OBRIGADO POR USAR O CRUD");
-                    sc.close();
-                    return; //exit program
+                    System.out.print("Nome atual: ");
+                        String nomeAntigo = sc.nextLine();
 
+                        System.out.print("Idade atual: ");
+                        int idadeAntiga = sc.nextInt();
+                        sc.nextLine();
+
+                        System.out.print("Novo nome: ");
+                        String novoNome = sc.nextLine();
+
+                        System.out.print("Nova idade: ");
+                        int novaIdade = sc.nextInt();
+                        sc.nextLine();
+
+                        boolean atualizado = crud.atualizarUsuario(nomeAntigo, idadeAntiga, novoNome, novaIdade);
+
+                        if (atualizado) {
+                            System.out.println("USUARIO ATUALIZADO.");
+                        } else {
+                            System.out.println("Usuario não encontrado.");
+                        }
+                        break;
+                 case 5:
+                     System.out.println("OBRIGADO POR USAR O CRUD");
+                    sc.close();
+                    return; 
                 default:
                     System.out.println("Opção inválida!");
             }
